@@ -1,6 +1,7 @@
 #include "print.h"
 #include <math.h>
 #include <stdio.h>
+#define M_PI 3.14159265358979323846
 
 void print_circle(char re[], float x, float y, float r)
 {
@@ -11,8 +12,8 @@ void print_circle(char re[], float x, float y, float r)
            r);
 
     printf("Длина окружности: %.3f, площадь: %.3f\n",
-           2 * 3.14 * r,
-           r * r * 3.14);
+           2 * M_PI * r,
+           r * r * M_PI);
 }
 
 void print_triangle(
