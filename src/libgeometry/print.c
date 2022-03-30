@@ -1,7 +1,6 @@
 #include "print.h"
 #include <math.h>
 #include <stdio.h>
-#define M_PI 3.14159265358979323846
 
 void print_circle(char re[], float x, float y, float r)
 {
