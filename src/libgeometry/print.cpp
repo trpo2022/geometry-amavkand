@@ -11,8 +11,8 @@ void print_circle(char re[], float x, float y, float r)
            r);
 
     printf("Длина окружности: %.3f, площадь: %.3f\n",
-           2 * M_PI * r,
-           r * r * M_PI);
+           2 * 3.14 * r,
+           r * r * 3.14);
 }
 
 void print_triangle(
