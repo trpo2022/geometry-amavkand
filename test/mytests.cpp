@@ -53,10 +53,3 @@ CTEST(number, test7)
     char b[] = "triangle";
     ASSERT_EQUAL(1, check_triangle(a, b));
 }
-
-CTEST(number, test8)
-{
-    char a[] = "circle(1 2, -3)";
-    char b[] = "circle";
-    ASSERT_EQUAL(1, check_circle(a, b));
-}
