@@ -1,7 +1,7 @@
 app_name = geometry
 lib_name = libgeometry
 
-cflags = -Wall -Werror -I src -MP -MMD
+cflags = -Wall -Werror -I src
 myflag = -lm
 
 app_path = bin/$(app_name)
@@ -23,11 +23,8 @@ test_objects = $(test_sources:test/%.cpp=obj/test/%.o)
 
 test_deps = $(test_objects:.o=.d) $(lib_objects:.o=.d)
 
-
 .PHONY: all
 all: $(app_path)
-
--include $(deps)
 
 $(app_path): $(app_objects) $(lib_path)
 	g++ $(cflags) $^ $(myflag) -o $@
@@ -38,13 +35,8 @@ $(lib_path): $(lib_objects)
 obj/%.o: %.cpp
 	g++ -c $(cflags) $< $(myflag) -o $@
 
-
-
-
 .PHONY: test
 test: $(test_path)
-
--include $(test_deps)
 
 $(test_path): $(test_objects) $(lib_path)
 	g++ $(cflags) -I thirdparty -I src $^ $(myflag) -o $@
@@ -52,13 +44,8 @@ $(test_path): $(test_objects) $(lib_path)
 obj/%.o: %.cpp
 	g++ -c $(cflags) -I thirdparty -I src $< $(myflag) -o $@
 
-
-
-
 .PHONY: clean
 clean:
 	$(RM) $(app_path) $(test_path) $(lib_path)
 	find obj/ -name '*.o' -exec $(RM) '{}' \;
 	find obj/ -name '*.d' -exec $(RM) '{}' \;
-
-
